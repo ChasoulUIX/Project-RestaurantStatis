@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="3; url='app/dashboard.html'">
     <style>
         body {
@@ -12,12 +14,20 @@
             background: linear-gradient(45deg, #1a1a1a, #2d3436);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
+            padding: 1rem;
         }
         .loading-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 2rem;
+            width: 100%;
+            max-width: 400px;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
         .loader {
             width: 80px;
@@ -64,6 +74,7 @@
             text-align: center;
             font-size: 1.2rem;
             animation: fadeInOut 2s ease-in-out infinite;
+            width: 100%;
         }
         @keyframes fadeInOut {
             0%, 100% { opacity: 0.5; }
@@ -71,15 +82,44 @@
         }
         .loading-text p {
             margin: 0.5rem 0;
+            word-wrap: break-word;
         }
         .loading-text a {
             color: #ff6b6b;
             text-decoration: none;
             transition: color 0.3s ease;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ff6b6b;
+            border-radius: 2rem;
+            margin-top: 0.5rem;
         }
         .loading-text a:hover {
             color: #ff8e8e;
-            text-decoration: underline;
+            border-color: #ff8e8e;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 480px) {
+            .loading-container {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            .loader {
+                width: 60px;
+                height: 60px;
+            }
+            .loading-text {
+                font-size: 1rem;
+            }
+            .loading-text p {
+                margin: 0.3rem 0;
+            }
+            .loading-text a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>

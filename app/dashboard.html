@@ -22,10 +22,11 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            width: 90%;
         }
 
         header {
-            background-color: #ffffff;
+            background-color: #ff6b00;
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -36,13 +37,19 @@
 
         header.scrolled {
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            padding: 15px 0;
+            padding: 8px 0;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        .nav-container h1 {
+            font-size: 1.5em;
         }
 
         .nav-links {
@@ -50,15 +57,21 @@
             gap: 30px;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #ffffff;
             font-weight: 500;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ff6b00;
+            color: #333;
         }
 
         .hero {
@@ -73,17 +86,18 @@
             color: white;
             text-align: center;
             margin-bottom: 40px;
+            padding: 0 20px;
         }
 
         .hero-content h1 {
-            font-size: 4em;
+            font-size: clamp(2em, 5vw, 4em);
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .menu-section {
             background-color: #fff;
-            padding: 60px;
+            padding: 30px;
             border-radius: 20px;
             margin-bottom: 60px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -92,17 +106,19 @@
         .menu-filters {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             border: none;
             background: none;
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s;
+            white-space: nowrap;
         }
 
         .filter-btn.active {
@@ -113,8 +129,8 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 20px;
         }
 
@@ -127,128 +143,155 @@
             position: relative;
         }
 
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-
         .menu-item img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
         }
 
         .menu-item-content {
-            padding: 20px;
-        }
-
-        .menu-item-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #ff6b00;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 15px;
         }
 
         .special-offers {
-            background: linear-gradient(45deg, #ff6b00, #ff8c42);
-            color: white;
-            padding: 60px;
+            padding: 30px;
             border-radius: 20px;
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .special-offers::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('pattern.png');
-            opacity: 0.1;
-        }
-
-        .testimonials {
-            padding: 60px 0;
+            margin-bottom: 40px;
         }
 
         .testimonial-slider {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            gap: 30px;
+            gap: 20px;
             padding: 20px 0;
-            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
 
         .testimonial-card {
-            min-width: 300px;
+            min-width: 280px;
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             scroll-snap-align: start;
         }
 
-        footer {
-            background-color: #ffffff;
-            color: #333;
-            padding: 60px 0 30px;
-            border-top: 1px solid #eee;
-        }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 25px;
             background-color: #ff6b00;
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9em;
         }
 
-        .btn:hover {
-            background-color: #ff8c42;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        @media screen and (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-section {
+                padding: 20px;
+            }
+
+            .menu-filters {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.9em;
+            }
+
+            .hero-content p {
+                font-size: 0.9em;
+            }
+
+            .menu-item {
+                margin: 0 auto;
+                max-width: 350px;
+            }
+
+            .special-offers {
+                padding: 20px;
+            }
+
+            .testimonial-card {
+                min-width: 260px;
+                padding: 15px;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
 
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .menu-filters {
+                flex-wrap: wrap;
+            }
+
+            .filter-btn {
+                width: calc(50% - 10px);
+            }
+
+            .testimonial-card {
+                min-width: 220px;
+            }
+        }
+
+        footer {
             background-color: #ff6b00;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s;
+            color: #ffffff;
+            padding: 40px 0 20px;
         }
 
-        .scroll-to-top.visible {
-            opacity: 1;
+        .footer-section h3 {
+            color: #ffffff;
+        }
+
+        .social-links a {
+            color: #ffffff;
         }
     </style>
 </head>
@@ -256,6 +299,9 @@
     <header>
         <div class="container nav-container">
             <h1>ChasoulRant</h1>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
             <nav class="nav-links">
                 <a href="#home">Beranda</a>
                 <a href="#menu">Menu</a>
@@ -285,7 +331,7 @@
             </div>
             <div class="menu-grid">
                 <div class="menu-item" data-category="main" data-aos="fade-up">
-                    <span class="menu-item-badge">Favorit</span>
+                   
                     <img src="https://images.pexels.com/photos/723198/pexels-photo-723198.jpeg" alt="Nasi Goreng">
                     <div class="menu-item-content">
                         <h3>Nasi Goreng Spesial</h3>
@@ -304,100 +350,100 @@
                     </div>
                 </div>
                 <div class="menu-item" data-category="main" data-aos="fade-up" data-aos-delay="200">
-                    <span class="menu-item-badge">New</span>
-                    <img src="https://images.unsplash.com/photo-1560717789-0ac7c58ac90a" alt="Sushi">
+                   
+                    <img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg" alt="Sushi">
                     <div class="menu-item-content">
                         <h3>Fresh Sushi</h3>
                         <p>Premium grade sushi selection</p>
-                        <p class="price">$18.99</p>
-                        <a href="../pages/order.html" class="btn">Order Now</a>
+                        <p class="price">Rp 89.000</p>
+                        <a href="../pages/order.html" class="btn">Pesan Sekarang</a>
                     </div>
                 </div>
                 <div class="menu-item" data-category="main" data-aos="fade-up" data-aos-delay="300">
-                    <span class="menu-item-badge">Chef's Choice</span>
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Steak">
+                   
+                    <img src="https://images.pexels.com/photos/1639561/pexels-photo-1639561.jpeg" alt="Steak">
                     <div class="menu-item-content">
                         <h3>Premium Ribeye Steak</h3>
                         <p>28-day aged beef with truffle sauce</p>
-                        <p class="price">$34.99</p>
-                        <a href="../pages/order.html" class="btn">Order Now</a>
+                        <p class="price">Rp 225.000</p>
+                        <a href="../pages/order.html" class="btn">Pesan Sekarang</a>
                     </div>
                 </div>
                 <div class="menu-item" data-category="dessert" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b" alt="Chocolate Cake">
+                    <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg" alt="Chocolate Cake">
                     <div class="menu-item-content">
                         <h3>Molten Chocolate Cake</h3>
                         <p>Warm chocolate cake with vanilla ice cream</p>
-                        <p class="price">$8.99</p>
-                        <a href="../pages/order.html" class="btn">Order Now</a>
+                        <p class="price">Rp 45.000</p>
+                        <a href="../pages/order.html" class="btn">Pesan Sekarang</a>
                     </div>
                 </div>
                 <div class="menu-item" data-category="dessert" data-aos="fade-up" data-aos-delay="100">
-                    <span class="menu-item-badge">Seasonal</span>
-                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Cheesecake">
+                   
+                    <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg" alt="Cheesecake">
                     <div class="menu-item-content">
                         <h3>New York Cheesecake</h3>
                         <p>Classic cheesecake with berry compote</p>
-                        <p class="price">$7.99</p>
-                        <a href="../pages/order.html" class="btn">Order Now</a>
+                        <p class="price">Rp 55.000</p>
+                        <a href="../pages/order.html" class="btn">Pesan Sekarang</a>
                     </div>
                 </div>
                 <div class="menu-item" data-category="drinks" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813" alt="Cocktail">
+                    <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg" alt="Cocktail">
                     <div class="menu-item-content">
                         <h3>Signature Cocktails</h3>
                         <p>House special mixed drinks</p>
-                        <p class="price">$12.99</p>
-                        <a href="../pages/order.html" class="btn">Order Now</a>
+                        <p class="price">Rp 75.000</p>
+                        <a href="../pages/order.html" class="btn">Pesan Sekarang</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="special-offers" id="offers" data-aos="fade-up">
-            <h2>Promo Spesial</h2>
-            <div class="offers-grid">
-                <div class="offer-card">
-                    <h3>Paket Keluarga</h3>
-                    <p>Diskon 20% untuk 4 orang</p>
-                    <p class="time">Setiap hari Minggu</p>
+        <section class="special-offers" id="offers" data-aos="fade-up" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg'); background-size: cover; background-position: center; padding: 60px 0; color: white;">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Promo Spesial</h2>
+            <div class="offers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 20px;">
+                <div class="offer-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: #ff6b6b; font-size: 1.8em; margin-bottom: 15px;">Paket Keluarga</h3>
+                    <p style="font-size: 1.2em; margin-bottom: 10px;">Diskon 20% untuk 4 orang</p>
+                    <p class="time" style="color: #ff8e8e; font-weight: bold;">Setiap hari Minggu</p>
                 </div>
-                <div class="offer-card">
-                    <h3>Makan Siang</h3>
-                    <p>Paket hemat termasuk minuman</p>
-                    <p class="price">Rp 35.000 per orang</p>
+                <div class="offer-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: #ff6b6b; font-size: 1.8em; margin-bottom: 15px;">Makan Siang</h3>
+                    <p style="font-size: 1.2em; margin-bottom: 10px;">Paket hemat termasuk minuman</p>
+                    <p class="price" style="color: #ff8e8e; font-weight: bold;">Rp 35.000 per orang</p>
                 </div>
-                <div class="offer-card">
-                    <h3>Promo Ramadhan</h3>
-                    <p>Paket buka puasa spesial</p>
-                    <p class="time">Selama Ramadhan</p>
+                <div class="offer-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; text-align: center; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: #ff6b6b; font-size: 1.8em; margin-bottom: 15px;">Promo Ramadhan</h3>
+                    <p style="font-size: 1.2em; margin-bottom: 10px;">Paket buka puasa spesial</p>
+                    <p class="time" style="color: #ff8e8e; font-weight: bold;">Selama Ramadhan</p>
                 </div>
             </div>
         </section>
 
         <section class="testimonials" id="testimonials" data-aos="fade-up">
-            <h2>What Our Customers Say</h2>
+            <h2>Kata Pelanggan Kami</h2>
             <div class="testimonial-slider">
                 <div class="testimonial-card">
-                    <p>"Amazing food and great service!"</p>
-                    <h4>John Doe</h4>
+                    <p>"Makanannya enak dan pelayanannya ramah!"</p>
+                    <h4>Budi Santoso</h4>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Best restaurant in town!"</p>
-                    <h4>Jane Smith</h4>
+                    <p>"Restoran terbaik di kota ini!"</p>
+                    <h4>Siti Rahayu</h4>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Will definitely come back!"</p>
-                    <h4>Mike Johnson</h4>
+                    <p>"Pasti akan datang lagi!"</p>
+                    <h4>Ahmad Wijaya</h4>
                 </div>
                 <div class="testimonial-card">
-                    <p>"The atmosphere is perfect for both casual dining and special occasions!"</p>
-                    <h4>Sarah Wilson</h4>
+                    <p>"Suasananya cocok untuk makan santai maupun acara spesial!"</p>
+                    <h4>Dewi Kusuma</h4>
                     <div class="rating">★★★★★</div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"Their weekend brunch is absolutely amazing. Great value!"</p>
-                    <h4>David Thompson</h4>
+                    <p>"Brunch akhir pekannya luar biasa. Harganya sangat worth it!"</p>
+                    <h4>Rudi Hermawan</h4>
                     <div class="rating">★★★★★</div>
                 </div>
             </div>
@@ -437,10 +483,69 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Add this function at the beginning of your script section
+        function cacheImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                const imageUrl = img.src;
+                // Check if image is already cached
+                if (!getCookie(imageUrl)) {
+                    // Create a new Image object
+                    const tempImage = new Image();
+                    tempImage.src = imageUrl;
+                    tempImage.onload = function() {
+                        // Save to cookie when image is loaded
+                        setCookie(imageUrl, 'cached', 7); // Cache for 7 days
+                    };
+                }
+            });
+        }
+
+        // Cookie helper functions
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const cookieName = name + "=";
+            const cookies = document.cookie.split(';');
+            for(let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(cookieName) == 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return "";
+        }
+
+        // Call cacheImages when the page loads
+        window.addEventListener('load', cacheImages);
+
         // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
         });
 
         // Header scroll effect
@@ -463,9 +568,7 @@
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
                 button.classList.add('active');
 
                 const filter = button.dataset.filter;
@@ -495,17 +598,6 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        });
-
-        // Menu item hover effect
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('mouseover', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            item.addEventListener('mouseout', function() {
-                this.style.transform = 'translateY(0)';
             });
         });
     </script>
